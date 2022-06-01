@@ -7,7 +7,7 @@
 Desde 2018 sou dev web.
 
 4. Quais Linguagens de Programação você domina?
-Javascript, Typescript, HTML, CSS
+JavaScript, TypeScript, NodeJS, HTML, CSS
 
 5. Conhece o paradigma de programação orientado a objetos?
 Sim! Na faculdade.
