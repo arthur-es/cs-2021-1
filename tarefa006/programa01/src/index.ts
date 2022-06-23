@@ -1,43 +1,38 @@
+// 1. Implementar um programa que:
+
+// - leia a idade de uma pessoa expressa em anos, meses e dias e mostre-a expressa
+//   em dias.
+// - Leve em consideração o ano com 365 dias e o mês com 30.
+// - Exemplo: 3 anos, 2 meses e 15 dias = 1170 dias.
+
 import * as prompts from 'prompts';
 
-import processaArquivoCSV from './utils/processaArquivoCSV';
-import EstadoData from './types/estadoData';
+const DIAS_EM_UM_ANO = 365;
+const DIAS_EM_UM_MES = 30;
 
-const REGIOES = [
-  { codigo: 1, nome: 'Norte' },
-  { codigo: 2, nome: 'Nordeste' },
-  { codigo: 3, nome: 'Sudeste' },
-  { codigo: 4, nome: 'Sul' },
-  { codigo: 5, nome: 'Centro Oeste' },
-];
-
-async function AulaUm() {
-  let todosEstados: Array<EstadoData> = [];
-
-  todosEstados = (await processaArquivoCSV(
-    './static/UF.csv',
-  )) as Array<EstadoData>;
-
-  const { sigla } = await prompts({
+async function ProgramaUm() {
+  const { idadeEmAnosMesesEDias } = await prompts({
     type: 'text',
-    name: 'sigla',
-    message: 'Qual é a sigla do estado desejado?',
-    validate: (sigla: string) => {
-      return sigla.length !== 2 ? `A sigla deve ter 2 caracteres!` : true;
+    name: 'idadeEmAnosMesesEDias',
+    message:
+      'Me fale a sua idade em anos meses e dias no formato anos, meses, dias (exemplo: 22,1,5)',
+    validate: (idadeEmAnosMesesEDias: string) => {
+      return idadeEmAnosMesesEDias.includes(',')
+        ? true
+        : 'Deve existir a separação por ,';
     },
   });
 
-  const dadosEstadoEscolhido = todosEstados.find((estado) => {
-    return estado.sigla === sigla.toUpperCase();
-  });
+  const [anos, meses, dias] = idadeEmAnosMesesEDias.split(',');
 
-  const { nome: nomeRegiao } = REGIOES.find((regiao) => {
-    return regiao.codigo === Number(dadosEstadoEscolhido.regiao);
-  });
+  const qtdDeDiasVividos =
+    anos * DIAS_EM_UM_ANO + meses * DIAS_EM_UM_MES + dias;
 
-  console.log(
-    `Estado escolhido: ${dadosEstadoEscolhido.estado} (Região ${nomeRegiao})`,
-  );
+  // Output solicitado na atividade:
+  console.log(`${qtdDeDiasVividos} dias`);
+
+  // Output melhor formatado:
+  // console.log(`Você já viveu ${qtdDeDiasVividos} dias!`);
 }
 
-AulaUm();
+ProgramaUm();
