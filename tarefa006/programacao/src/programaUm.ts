@@ -26,7 +26,9 @@ async function ProgramaUm() {
   const [anos, meses, dias] = idadeEmAnosMesesEDias.split(',');
 
   const qtdDeDiasVividos =
-    anos * DIAS_EM_UM_ANO + meses * DIAS_EM_UM_MES + dias;
+    Number(anos) * DIAS_EM_UM_ANO +
+    Number(meses) * DIAS_EM_UM_MES +
+    Number(dias);
 
   // Output solicitado na atividade:
   console.log(`${qtdDeDiasVividos} dias`);
