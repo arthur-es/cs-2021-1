@@ -30,8 +30,10 @@
 
 O programa deve calcular o valor total a ser pago e apresentar o resultado.
 
-Fórmula : _(valor1*quant1 + valor2*quant2)_\*_(IPI/100 + 1)_ 5. Implementar um
-programa que:
+Fórmula : _(valor1*quant1 + valor2*quant2)_\*_(IPI/100 + 1)_
+
+5. Implementar um
+   programa que:
 
 - leia o valor do salário mínimo e o valor do salário de um usuário,
 - calcule a quantidade de salários mínimos esse usuário ganha e imprima o
