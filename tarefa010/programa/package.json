@@ -2,7 +2,8 @@
   "name": "arthur-castro",
   "version": "0.0.0",
   "scripts": {
-    "start": "node build/src/index.js",
+    "start:1": "node build/src/recursividade.js",
+    "start:2": "node build/src/index.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.release.json",
